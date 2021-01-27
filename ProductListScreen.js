@@ -8,14 +8,14 @@ const width = Dimensions.get('screen').width
 
 const ProdList = [
   {
-    name: 'Pumpkin Soup (Popular Sale Product in this Month)',
+    name: 'Pumpkin Soup (Popular Sale Product)',
     made_in: 'Made in Myanmar',
     price: 1500,
     img: require('../../../assets/images/pumpkin_soup.jpg')
   },
   {
     name: 'Soup One',
-    made_in: 'Made in Myanmar ("Prototypes are a low-risk way to show proof of concept and gauge buyer interest,")',
+    made_in: 'Made in Myanmar ("Prototypes are a low-risk way to show proof of concept")',
     price: 1500,
     img: require('../../../assets/images/picone.jpg')
   },
@@ -50,7 +50,9 @@ const ProductListScreen = ({navigation, route}) => {
           renderItem={({ item, index }) => {
             return (
               <TouchableOpacity
-              onPress={()=> {navigation.navigate('ProductDetail')}}
+              onPress={()=> {navigation.navigate('ProductDetail', {
+                product: item,
+              })}}
                key={index} style={{marginHorizontal: 10, marginVertical: 6, backgroundColor: '#fff', borderRadius: 15, padding: 10, flexDirection: 'row', alignItems: 'center' }}>
                 <View style={{ width: width/3 - 10, height: width/3 - 20, borderRadius: 10 }}>
                   <Image style={{ width: '100%', height: '100%', borderRadius: 10 }} source={item.img} />
